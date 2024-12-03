@@ -1,3 +1,4 @@
+
 export default function Cart({ cartDetails }) {
     
     console.log(cartDetails)
