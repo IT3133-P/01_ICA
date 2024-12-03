@@ -1,7 +1,14 @@
 
 export default function Cart({ cartDetails }) {
     
-    console.log(cartDetails)
+    function calculateTotal(cartDetails) {
+
+        const tot = cartDetails ? (cartDetails.reduce((sum, item) => sum + (item.sum || 0), 0)).toFixed(2) : (0)
+        return tot
+    }
+
+    const total = calculateTotal(cartDetails)
+
     return (
         <div className="table-container">
             <h4 className="card-title">Cart</h4>
@@ -28,7 +35,7 @@ export default function Cart({ cartDetails }) {
                 }
                 <tr>
                     <td >Grand Total : </td>
-                    <td colSpan={2}>Grand Total</td>
+                    <td colSpan={2}>{total}</td>
                 </tr>
             </table>
            
